@@ -1,0 +1,5 @@
+npm init
+npm install --save @babel/polyfill express morgan pg pg-hstore sequelize
+npm install -D @babel/cli @babel/core @babel/node @babel/preset-env nodemon
+
+npm run dev
