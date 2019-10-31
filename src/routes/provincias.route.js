@@ -12,9 +12,9 @@ const router = Router();
 
 router.get('/', getProvincias);
 router.get('/:id', getProvinciaById);
-router.put('/', putProvincia);
+router.put('/:id', putProvincia);
 router.post('/', postProvincia);
-router.delete('/', deleteProvincia);
+router.delete('/:id', deleteProvincia);
 
 
 export default router;

@@ -56,7 +56,17 @@ export async function postProvincia(req, res) {
 	}
 };
 
-export function deleteProvincia(req, res) {
-	// TODO
-	res.send('TODO delete');
+export async function deleteProvincia(req, res) {
+	try {
+		let borrados = await Provincia.destroy({
+			where: {
+				id: req.params.id
+			}
+		});
+
+		res.json({ borrados });
+	} catch (err) {
+		console.error('Error al borrar la provincia', err);
+		res.status(500).send('Error al borrar la provincia');
+	}
 };
