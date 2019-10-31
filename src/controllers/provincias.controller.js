@@ -13,6 +13,28 @@ export async function getProvincias(request, response) {
 
 };
 
+export async function getProvinciaById(req, res) {
+	try {
+		let id = req.params.id;
+		let prov = await Provincia.findOne({
+			where: {
+				id: id,
+			},
+		});
+
+		if (prov) {
+			res.json(prov);
+		} else {
+			res.status(404).send('Provincia no encontrada');
+		}
+
+	} catch (err) {
+		console.error('err')
+		console.error(err)
+		res.status(500).json(err);
+	}
+};
+
 export function putProvincia(req, res) {
 	// TODO
 	res.send('TODO put');
