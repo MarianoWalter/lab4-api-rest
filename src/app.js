@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import database from './database/database';
 import routerProvincias from './routes/provincias.route';
 import routerDepartamentos from './routes/departamentos.route';
+import routerLocalidades from './routes/localidades.route';
 
 // Inicializa la app
 const app = express();
@@ -14,6 +15,7 @@ app.use(express.json());
 
 app.use('/api/provincias', routerProvincias);
 app.use('/api/departamentos', routerDepartamentos);
+app.use('/api/localidades', routerLocalidades);
 
 database.sync({
 	// force: true, // "force: true" borra la estructura actual y crea todo de nuevo

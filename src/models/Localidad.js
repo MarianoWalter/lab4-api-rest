@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
 import database from '../database/database';
 
-const Departamento = database.define('departamentos', {
+const Localidad = database.define('localidades', {
     id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -11,12 +11,11 @@ const Departamento = database.define('departamentos', {
         type: Sequelize.STRING,
     },
 
-    // TODO relación con provincia
-    provincia_id: {
+    // TODO relación con departamento
+    departamento_id: {
         type: Sequelize.INTEGER,
-        allowNull: false,
     },
 
 });
 
-export default Departamento;
+export default Localidad;
