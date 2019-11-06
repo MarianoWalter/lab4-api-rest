@@ -3,7 +3,9 @@ import Departamento from '../models/Departamento';
 export async function getDepartamentos(request, response) {
 
     try {
-        let lista = await Departamento.findAll();
+        let lista = await Departamento.findAll({
+            include: ['provincia']
+        });
         response.json(lista);
     } catch (err) {
         console.error('Error al consultar los departamentos', err);
@@ -19,6 +21,7 @@ export async function getDepartamentoById(req, res) {
             where: {
                 id: idDep,
             },
+            include: ['provincia']
         });
         
         if (dep) {
