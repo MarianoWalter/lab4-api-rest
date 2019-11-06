@@ -15,10 +15,10 @@ export async function getProvincias(request, response) {
 
 export async function getProvinciaById(req, res) {
 	try {
-		let id = req.params.id;
+		let idProv = req.params.id;
 		let prov = await Provincia.findOne({
 			where: {
-				id: id,
+				id: idProv,
 			},
 		});
 
@@ -29,7 +29,7 @@ export async function getProvinciaById(req, res) {
 		}
 
 	} catch (err) {
-		console.error('err')
+		console.error('Error al consultar la provincia con ID ' + idProv);
 		console.error(err)
 		res.status(500).json(err);
 	}
@@ -37,7 +37,7 @@ export async function getProvinciaById(req, res) {
 
 export function putProvincia(req, res) {
 	// TODO
-	res.send('TODO put');
+	res.status(501).send('TODO put');
 };
 
 export async function postProvincia(req, res) {

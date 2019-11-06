@@ -3,6 +3,7 @@ import morgan from 'morgan';
 
 import database from './database/database';
 import routerProvincias from './routes/provincias.route';
+import routerDepartamentos from './routes/departamentos.route';
 
 // Inicializa la app
 const app = express();
@@ -12,6 +13,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 app.use('/api/provincias', routerProvincias);
+app.use('/api/departamentos', routerDepartamentos);
 
 database.sync({
 	// force: true, // "force: true" borra la estructura actual y crea todo de nuevo
