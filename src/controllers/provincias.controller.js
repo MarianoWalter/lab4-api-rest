@@ -1,10 +1,19 @@
 import Provincia from '../models/Provincia';
+import { Op } from 'sequelize';
 
 /** Consultar la lista de provincias */
 export async function getProvincias(request, response) {
 
 	try {
-		let lista = await Provincia.findAll();
+		let queryNombre = `%${ request.query.nombre || '' }%`;
+
+		let lista = await Provincia.findAll({
+			where: {
+				nombre: {
+					[Op.iLike]: queryNombre,
+				},
+			},
+		});
 		response.json(lista);
 	} catch (err) {
 		console.error('Error al consultar las provincias', err);
